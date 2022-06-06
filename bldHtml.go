@@ -36,5 +36,20 @@ func main () {
 	}
 
 	fmt.Printf("input file: %s\n", inpfilNam)
+
+	// create input file name and open file
+	inpYamlNam := "inpYaml/" + inpfilNam + ".yaml"
+
+	inpfil, err := os.Open(inpYamlNam)
+	if err != nil {
+		fmt.Printf("error os.Open: %v\n", err)
+	}
+
+	outFilNam := "output/" + inpfilNam + ".html"
+	outfil, err := os.Create(outFilNam)
+	if err != nil {
+		fmt.Printf("error os.Create %v\n", err)
+		os.Exit(1)
+	}
 	fmt.Println("*** success ***")
 }
